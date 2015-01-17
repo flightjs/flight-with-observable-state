@@ -48,8 +48,8 @@ var ToggleButton = flight.component(
             });
         };
 
-        this.update = function () {
-            this.$node.toggleClass('is-active', this.state.active);
+        this.update = function (state) {
+            this.$node.toggleClass('is-active', state.active);
         };
     }
 );
