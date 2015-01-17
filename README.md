@@ -68,13 +68,13 @@ var ToggleButton = flight.component(
 
 `getObservableState` returns an observableState for the components state. It takes an optional options object which can contain a list of keys to subscribe to.
 
-```
+```js
 var observableActiveState = this.getObservableState( {keys: ['active'] });
 ```
 
 This would return an observable stream of the components changing active state property. This API means it can easily be integrated with the [flight-with-resources](https://github.com/ahume/flight-with-resources) mixin so that other components can easily request an observable stream of this components state.
 
-```
+```js
 // Subscribe to some state and pipe it into local state.
 this.requestResource('applicationState', {keys: ['characterCount']})
     .subscribe(this.mergeState.bind(this));
