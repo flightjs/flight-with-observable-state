@@ -1,0 +1,20 @@
+{
+  "name": "flight-with-observable-state",
+  "version": "1.0.0",
+  "main": "lib/with-observable-state.js",
+  "dependencies": {
+    "flight": "^1.2.0",
+    "flight-with-state": "^1.2.0",
+    "rxjs": "^2.3.0"
+  },
+  "ignore": [
+    ".gitignore",
+    ".gitattributes",
+    ".travis.yml",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "test",
+    "package.json",
+    "karma.conf.js"
+  ]
+}
