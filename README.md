@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/ahume/flight-with-observable-state.png)](http://travis-ci.org/ahume/flight-with-observable-state)
 
-A [Flight](https://github.com/flightjs/flight) mixin extends the [flight-with-state](https://github.com/flightjs/flight-with-state) mixin by exposing the components state as an observable stream.
+A [Flight](https://github.com/flightjs/flight) mixin which extends the [flight-with-state](https://github.com/flightjs/flight-with-state) mixin by exposing the component's state as an observable stream.
 
 ## Installation
 
@@ -58,21 +58,21 @@ var ToggleButton = flight.component(
 
 ## API
 
-`withObservableState` depends on the [flight-with-state](https://github.com/flightjs/flight-with-state) mixin, and as such provides all of those methods as part of its API. You do not need to mixin `withState` to your component. `withObservableState` also introduces the following properties and methods.
+`withObservableState` includes the [flight-with-state](https://github.com/flightjs/flight-with-state) mixin, and as such provides all of those methods as part of its API. You do not need to include `withState` in your own component. `withObservableState` also introduces the following properties and methods.
 
 ### `observableState`
 
-`observableState` property provides an observable stream of the components changing state. In actuality it is an instance of a [RXJS BehaviourSubject](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md).
+`observableState` property provides an observable stream of the component's changing state. In actuality it is an instance of a [RXJS BehaviourSubject](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md).
 
 ### `getObservableState`
 
-`getObservableState` returns an observableState for the components state. It takes an optional options object which can contain a list of keys to subscribe to.
+`getObservableState` returns an observableState for the component's state. It takes an optional options argument which can contain a list of keys to subscribe to.
 
 ```js
 var observableActiveState = this.getObservableState( {keys: ['active'] });
 ```
 
-This would return an observable stream of the components changing active state property. This API means it can easily be integrated with the [flight-with-resources](https://github.com/ahume/flight-with-resources) mixin so that other components can easily request an observable stream of this components state.
+This would return an observable stream for the component's state property `active`, and not include changes for any other property. This API allows it to be combined with the [flight-with-resources](https://github.com/ahume/flight-with-resources) mixin so that other components can easily request an observable stream of particular properties of this component's state. For example...
 
 ```js
 // Subscribe to some state and pipe it into local state.
