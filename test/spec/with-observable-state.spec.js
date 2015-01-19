@@ -81,11 +81,24 @@ define(function (require) {
             expect(timesCalled).toBe(2);
         });
 
-        it('should only provide stream for requested keys', function (done) {
-            instanceA.getObservableState({keys: ['count']}).subscribe(function (state) {
-                expect(state.alive).toBe(undefined);
-                expect(state.count).toBe(1);
-                done();
+        describe('keys options', function () {
+
+            it('should only provide stream for single requested key', function (done) {
+                instanceA.getObservableState({keys: ['count']}).subscribe(function (state) {
+                    expect(state.alive).toBe(undefined);
+                    expect(state.count).toBe(1);
+                    expect(state.name).toBe(undefined);
+                    done();
+                });
+            });
+
+            it('should only provide stream for two requested keys', function (done) {
+                instanceA.getObservableState({keys: ['count', 'alive']}).subscribe(function (state) {
+                    expect(state.alive).toBe(true);
+                    expect(state.count).toBe(1);
+                    expect(state.name).toBe(undefined);
+                    done();
+                });
             });
         });
     });
