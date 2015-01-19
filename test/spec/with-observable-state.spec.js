@@ -42,29 +42,43 @@ define(function (require) {
             expect(instanceA.getObservableState().subscribe).toBeDefined();
         });
 
-        it('should stream changed values', function (done) {
+        it('should stream changed values', function () {
+            var currentCount;
+            var timesCalled = 0;
             instanceA.observableState.subscribe(function (state) {
-                if (state.count === 2) {
-                    done();
-                }
+                currentCount = state.count;
+                timesCalled = timesCalled + 1;
             });
             instanceA.mergeState({
                 count: 2
-            })
-        });
-
-        it('should not stream unchanged values', function (done) {
-            var called = 0;
-            instanceA.getObservableState().subscribe(function (state) {
-                called = called + 1;
             });
             instanceA.mergeState({
-                count: 1
+                count: 3
             });
-            expect(called).toBe(1)
-            setTimeout(function () {
-                done();
-            }, 10);
+            expect(currentCount).toBe(3);
+            // We expect timesCalled to be 3 because the handler is called on
+            // initial subscribe and then on the two mergeState calls.
+            expect(timesCalled).toBe(3);
+        });
+
+        it('should not stream unchanged values', function () {
+            var currentCount;
+            var timesCalled = 0;
+            instanceA.getObservableState().subscribe(function (state) {
+                currentCount = state.count;
+                timesCalled = timesCalled + 1;
+            });
+            instanceA.mergeState({
+                count: 2 // This should send
+            });
+            instanceA.mergeState({
+                count: 2 // This should not send, because it hasn't changed.
+            });
+
+            expect(currentCount).toBe(2);
+            // We expect timesCalled to be 2 because the handler is called on
+            // initial subscribe and then on the first mergeState.
+            expect(timesCalled).toBe(2);
         });
 
         it('should only provide stream for requested keys', function (done) {
