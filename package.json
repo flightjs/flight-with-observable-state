@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-bump": "^0.0.15",
+    "grunt-bump": "latest",
     "karma": "~0.12.6",
     "karma-cli": "0.0.4",
-    "karma-jasmine": "~0.2.0",
+    "karma-jasmine": "~0.1.0",
     "karma-requirejs": "~0.2.2",
     "karma-chrome-launcher": "*",
     "karma-firefox-launcher": "*",
-    "karma-phantomjs-launcher": "*",
-    "matchdep": "^0.3.0",
-    "requirejs": "^2.1.15"
+    "matchdep": "latest"
   },
   "scripts": {
     "test": "karma start --single-run --reporters dots --browsers Firefox",
@@ -25,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahume/flight-with-observable-state.git"
+    "url": "https://github.com/flightjs/flight-with-observable-state.git"
   },
   "keywords": [
     "flight",
@@ -35,10 +33,13 @@
     "rxjs",
     "flight-toolbox"
   ],
-  "author": "Andy Hume <ahume@twitter.com>",
+  "contributors": [
+    "Tom Ashworth <ta@twitter.com>",
+    "Andy Hume <ahume@twitter.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ahume/flight-with-observable-state/issues"
+    "url": "https://github.com/flightjs/flight-with-observable-state/issues"
   },
-  "homepage": "https://github.com/ahume/flight-with-observable-state"
+  "homepage": "https://github.com/flightjs/flight-with-observable-state"
 }

@@ -19,6 +19,8 @@ module.exports = function (config) {
     files: [
       // loaded without require
       'bower_components/jquery/dist/jquery.js',
+      'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
+      'bower_components/jasmine-flight/lib/jasmine-flight.js',
 
       // loaded with require
       {pattern: 'bower_components/flight/**/*.js', included: false},

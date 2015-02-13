@@ -7,6 +7,9 @@
     "flight-with-state": "^1.2.0",
     "rxjs": "^2.3.0"
   },
+  "devDependencies": {
+    "jasmine-flight": "^2.2.0"
+  },
   "ignore": [
     ".gitignore",
     ".gitattributes",

@@ -1,6 +1,6 @@
 # flight-with-observable-state
 
-[![Build Status](https://secure.travis-ci.org/ahume/flight-with-observable-state.png)](http://travis-ci.org/ahume/flight-with-observable-state)
+[![Build Status](https://secure.travis-ci.org/flightjs/flight-with-observable-state.svg)](http://travis-ci.org/flightjs/flight-with-observable-state)
 
 A [Flight](https://github.com/flightjs/flight) mixin which extends the [flight-with-state](https://github.com/flightjs/flight-with-state) mixin by exposing the component's state as an observable stream.
 
@@ -66,19 +66,7 @@ var ToggleButton = flight.component(
 
 ### `getObservableState`
 
-`getObservableState` returns an observableState for the component's state. It takes an optional options argument which can contain a list of keys to subscribe to.
-
-```js
-var observableActiveState = this.getObservableState( {keys: ['active'] });
-```
-
-This would return an observable stream for the component's state property `active`, and not include changes for any other property. This API allows it to be combined with the [flight-with-resources](https://github.com/ahume/flight-with-resources) mixin so that other components can easily request an observable stream of particular properties of this component's state. For example...
-
-```js
-// Subscribe to some state and pipe it into local state.
-this.requestResource('applicationState', {keys: ['characterCount']})
-    .subscribe(this.mergeState.bind(this));
-```
+`getObservableState` returns an observableState for the component's state. The mixin ensures that any subscriptions to this state are disposed of on component teardown.
 
 
 ## Development
