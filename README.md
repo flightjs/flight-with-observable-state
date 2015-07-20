@@ -58,16 +58,11 @@ var ToggleButton = flight.component(
 
 ## API
 
-`withObservableState` includes the [flight-with-state](https://github.com/flightjs/flight-with-state) mixin, and as such provides all of those methods as part of its API. You do not need to include `withState` in your own component. `withObservableState` also introduces the following properties and methods.
+`withObservableState` includes the [flight-with-state](https://github.com/flightjs/flight-with-state) mixin, and as such provides all of those methods as part of its API. You do not need to include `withState` in your own component. `withObservableState` also introduces the `observableState` property.
 
 ### `observableState`
 
-`observableState` property provides an observable stream of the component's changing state. In actuality it is an instance of a [RXJS BehaviourSubject](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md).
-
-### `getObservableState`
-
-`getObservableState` returns an observableState for the component's state. The mixin ensures that any subscriptions to this state are disposed of on component teardown.
-
+`observableState` property provides an observable stream of the component's changing state. In actuality it is an instance of a [RXJS Observable](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md) connected to a [RXJS BehaviourSubject](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md).
 
 ## Development
 

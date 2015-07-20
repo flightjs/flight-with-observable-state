@@ -1,14 +1,13 @@
 {
   "name": "flight-with-observable-state",
-  "version": "1.0.0",
   "main": "lib/with-observable-state.js",
   "dependencies": {
     "flight": "^1.2.0",
-    "flight-with-state": "^1.2.0",
+    "flight-with-state": "^2.1.0",
     "rxjs": "^2.3.0"
   },
   "devDependencies": {
-    "jasmine-flight": "^2.2.0"
+    "jasmine-flight": "latest"
   },
   "ignore": [
     ".gitignore",

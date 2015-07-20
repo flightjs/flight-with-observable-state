@@ -1,21 +1,23 @@
-define(function (require) {
+describeMixin('lib/with-observable-state', function () {
     'use strict';
 
-    var component = require('flight/lib/component');
+    beforeEach(function () {
+        this.setupComponent();
+    });
 
-    describeMixin('lib/with-observable-state', function () {
+    it('should turn state into observableState', function () {
+        expect(this.component.observableState).toBeDefined();
+        expect(this.component.observableState.subscribe).toBeDefined();
+    });
 
-        beforeEach(function () {
-            this.setupComponent();
+    it('should push new state value on to the stream', function (done) {
+        this.component.observableState.subscribeOnNext(function (state) {
+            if (state.active === true) {
+                done();
+            }
         });
-
-        it('should turn state into observableState', function () {
-            expect(this.component.observableState).toBeDefined();
-            expect(this.component.observableState.subscribe).toBeDefined();
-        });
-
-        it('should provide getObservableState function', function () {
-            expect(this.component.getObservableState().subscribe).toBeDefined();
+        this.component.mergeState({
+            active: true
         });
     });
 });
