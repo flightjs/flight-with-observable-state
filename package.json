@@ -1,6 +1,6 @@
 {
   "name": "flight-with-observable-state",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "devDependencies": {
     "bower": "^1.4.1",
     "grunt": "~0.4.5",
