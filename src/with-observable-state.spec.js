@@ -1,8 +1,12 @@
-describeMixin('lib/with-observable-state', function () {
-    'use strict';
+import { component } from 'flight';
+import withObservableState from '.';
+
+describe('withObservableState', function () {
+    var Component = component(withObservableState, function Base() {});
 
     beforeEach(function () {
-        this.setupComponent();
+        Component.teardownAll();
+        this.component = (new Component()).initialize(document.body);
     });
 
     it('should turn state into observableState', function () {
