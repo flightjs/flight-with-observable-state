@@ -1,7 +1,7 @@
 {
   "name": "flight-with-observable-state",
   "description": "A Flight mixin for exposing component state via an observable stream.",
-  "main": "dist/flight-with-state.js",
+  "main": "dist/flight-with-observable-state.js",
   "files": [
     "dist"
   ],
