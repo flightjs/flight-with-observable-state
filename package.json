@@ -46,7 +46,7 @@
     "semantic-release": "^4.3.5",
     "webpack": "^1.12.1"
   },
-  "peerDependencies": {
+  "dependencies": {
     "flight-with-state": "^6",
     "flightjs": "^1.5.1",
     "rx": "^4"
