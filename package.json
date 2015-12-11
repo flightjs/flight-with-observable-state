@@ -44,7 +44,7 @@
     "webpack": "^1.12.1"
   },
   "dependencies": {
-    "flight-with-state": "^7",
+    "flight-with-state": "^8",
     "flightjs": "^1.5.1",
     "rx": ">=2"
   },
