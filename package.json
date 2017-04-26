@@ -45,6 +45,7 @@
     "mocha": "^3.3.0",
     "object-assign": "^4.0.1",
     "semantic-release": "^6.3.2",
+    "semantic-release-cli": "^3.0.3",
     "webpack": "^2.4.1"
   },
   "dependencies": {
@@ -72,5 +73,6 @@
   "bugs": {
     "url": "https://github.com/flightjs/flight-with-observable-state/issues"
   },
-  "homepage": "https://github.com/flightjs/flight-with-observable-state"
+  "homepage": "https://github.com/flightjs/flight-with-observable-state",
+  "version": "0.0.0-development"
 }
