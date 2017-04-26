@@ -5,19 +5,19 @@
  */
 import { compose } from 'flight';
 import withState from 'flight-with-state';
-import Rx from 'rx';
+import Rx from 'rxjs';
 
 export default function withObservableState() {
     compose.mixin(this, [withState]);
 
     this.after('initialize', function () {
-        // Construct stream with an initial value of the components state.
+        // Construct stream with an initial value of the component's state.
         var stateSubject = new Rx.BehaviorSubject(this.state);
 
         // Expose only the observable, so nothing else can push values on to the stream.
         this.observableState = stateSubject.asObservable();
 
         // When component state changes, push values on to the stream.
-        this.after('stateChanged', stateSubject.onNext.bind(stateSubject));
+        this.after('stateChanged', stateSubject.next.bind(stateSubject));
     });
 }
