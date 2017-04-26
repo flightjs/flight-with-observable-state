@@ -15,7 +15,7 @@ describe('withObservableState', function () {
     });
 
     it('should push new state value on to the stream', function (done) {
-        this.component.observableState.subscribeOnNext(function (state) {
+        this.component.observableState.subscribe(state => {
             if (state.active === true) {
                 done();
             }

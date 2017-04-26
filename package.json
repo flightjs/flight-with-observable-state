@@ -46,7 +46,7 @@
   "dependencies": {
     "flight-with-state": "^8",
     "flightjs": "^1.5.1",
-    "rx": ">=2"
+    "rxjs": "^5.3.0"
   },
   "repository": {
     "type": "git",
